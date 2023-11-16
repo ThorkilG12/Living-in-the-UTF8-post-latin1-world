@@ -85,17 +85,15 @@ You have to change into CodePage 65001 to be able to use UFT8.
 From my work with PostgreSQL the last 5 years or so, I will say that Postgres pass the test witout any comments 👍
 
 ## Using JavaScript, PHP, Apache, Browsers and smartphones
-From my point of view, the whole web and the most popular underlaying tools handles UTF8 fine. The transision is over 😊
+From my point of view, the whole web and the most popular underlaying tools handles UTF8 fine.  
+The transision is over 😊
 
 ## Using BOM (Byte Order Mark)
 A bit out of scope for this document I have to mention BOM. It's part of the story about UTF8, and it's always annoying when it turns up.  
 You can read about it in Wiki: https://en.wikipedia.org/wiki/Byte_order_mark  
 
 Here is a little bit:
-   Microsoft compilers[11] and interpreters, and many pieces of software on Microsoft Windows such as Notepad (prior to Windows 10 Build 1903[12]) treat the BOM as a 
-   required magic number rather than use heuristics. These tools add a BOM when saving text as UTF-8, and cannot interpret UTF-8 unless the BOM is present or the file 
-   contains only ASCII. Windows PowerShell (up to 5.1) will add a BOM when it saves UTF-8 XML documents. However, PowerShell Core 6 has added a -Encoding switch on some 
-   cmdlets called utf8NoBOM so that document can be saved without BOM. Google Docs also adds a BOM when converting a document to a plain text file for download. 
+> Microsoft compilers[11] and interpreters, and many pieces of software on Microsoft Windows such as Notepad (prior to Windows 10 Build 1903[12]) treat the BOM as a required magic number rather than use heuristics. These tools add a BOM when saving text as UTF-8, and cannot interpret UTF-8 unless the BOM is present or the file contains only ASCII. Windows PowerShell (up to 5.1) will add a BOM when it saves UTF-8 XML documents. However, PowerShell Core 6 has added a -Encoding switch on some cmdlets called utf8NoBOM so that document can be saved without BOM. Google Docs also adds a BOM when converting a document to a plain text file for download. 
 
 ## Using SAS 
 ``` sas
