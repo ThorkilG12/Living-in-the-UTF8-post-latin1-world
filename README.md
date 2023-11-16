@@ -46,6 +46,7 @@ $citiesPlus | Sort-Object -Property CityUp | Out-GridView
 ``` 
 The hex value for the Polish City "Łódź" is "c581c3b364c5ba". UTF8 uses more than one byte for some characters. Even though, the correct length is 4. Not 7.  
 I have sorted on the trimmed column "CityUp" since - in PowerShell - sorting does not skip spaces in front of " Belfast"  
+PowerShell has a Get- and Set-Culture. You have to restart PowerShell when you have changed Culture, but all sorting and stuff works fine.  
 From the above, I will say that PowerShell passes the test.
 ## Sorting
 To handle sorting I zoom in on Danish, Sweedish and German letters.
@@ -81,7 +82,22 @@ You have to change into CodePage 65001 to be able to use UFT8.
 
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/347dee85-efa1-44f3-ab17-75bb21051d04)
 
-# Using SAS 
+From my work with PostgreSQL the last 5 years or so, I will say that Postgres pass the test witout any comments 👍
+
+## Using JavaScript, PHP, Apache, Browsers and smartphones
+From my point of view, the whole web and the most popular underlaying tools handles UTF8 fine. The transision is over 😊
+
+## Using BOM (Byte Order Mark)
+A bit out of scope for this document I have to mention BOM. It's part of the story about UTF8, and it's always annoying when it turns up.  
+You can read about it in Wiki: https://en.wikipedia.org/wiki/Byte_order_mark  
+
+Here is a little bit:
+   Microsoft compilers[11] and interpreters, and many pieces of software on Microsoft Windows such as Notepad (prior to Windows 10 Build 1903[12]) treat the BOM as a 
+   required magic number rather than use heuristics. These tools add a BOM when saving text as UTF-8, and cannot interpret UTF-8 unless the BOM is present or the file 
+   contains only ASCII. Windows PowerShell (up to 5.1) will add a BOM when it saves UTF-8 XML documents. However, PowerShell Core 6 has added a -Encoding switch on some 
+   cmdlets called utf8NoBOM so that document can be saved without BOM. Google Docs also adds a BOM when converting a document to a plain text file for download. 
+
+## Using SAS 
 ``` sas
 data cities;
   city = 'Łódź';
@@ -89,17 +105,20 @@ data cities;
 run;
 ```
 SAS thinks that the length is 7 insteadt of 4.  
-SAS han new function for UTF8. For example klength() which return 4 for 'Łódź', and thats fine.  
+SAS has new function for UTF8. For example `klength()` which return 4 for "Łódź", and thats fine.  
 
-Try to imagine a big organisation going from SAS(Latin) to SAS(UTF8) ?  Millions of SAS Datasets has to be convertet to UTF8 and SAS Programs will fail big time.  
-The amount of problems and used hours for a big old company is hard to justify - just for being UTF8 complient. (Which - IMHO - would be the only right thing to do)  
+Try to imagine a big organisation going from SAS(Latin) to SAS(UTF8) ?  
+Millions of SAS Datasets has to be convertet to UTF8 and SAS Programs will fail big time.  
+The amount of problems and time spent for a big old company to switch to UTF is hard to justify - just for being UTF8 complient. (Which - IMHO - would be the only right thing to do)  
 
-SAS has to come up with some solution that "over night" can convert a company away from Latin into the age of UTF8.
-
+SAS has to come up with some solution that "over night" can convert a company away from Latin into the age of UTF8.  
+If you try to use UTF8 characters within SAS(Latin) you will see this:  
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/84790cab-c7a0-4d0f-bafc-5f0fc54941e4)
 
-
+SAS Has a solution. A standars old-fashion installed PC SAS has this to offer:  
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/e4cdf500-c0e8-449e-9447-cd24b5d86e3e)
 
+Now you can work with UTF in SAS:  
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/2cdc419c-0dde-42d6-a4ce-0d0982ffddb9)
 
+## Using SLC / Altair
