@@ -95,6 +95,10 @@ You can read about it in Wiki: https://en.wikipedia.org/wiki/Byte_order_mark
 Here is a little bit:
 > Microsoft compilers[11] and interpreters, and many pieces of software on Microsoft Windows such as Notepad (prior to Windows 10 Build 1903[12]) treat the BOM as a required magic number rather than use heuristics. These tools add a BOM when saving text as UTF-8, and cannot interpret UTF-8 unless the BOM is present or the file contains only ASCII. Windows PowerShell (up to 5.1) will add a BOM when it saves UTF-8 XML documents. However, PowerShell Core 6 has added a -Encoding switch on some cmdlets called utf8NoBOM so that document can be saved without BOM. Google Docs also adds a BOM when converting a document to a plain text file for download. 
 
+Your friend when having issues reading and writing files is Notepad++  
+![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/8814aff2-e8c4-45ad-9d1e-c67e3bbdb9f0)
+
+
 ## Using SAS 
 ``` sas
 data cities;
@@ -120,3 +124,4 @@ Now you can work with UTF in SAS:
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/2cdc419c-0dde-42d6-a4ce-0d0982ffddb9)
 
 ## Using SLC / Altair
+(comin up later...)
