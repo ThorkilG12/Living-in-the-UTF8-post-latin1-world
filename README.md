@@ -60,8 +60,8 @@ In Gernamy - on the other hand - "Ö" is seen as a variation of "O". Therefor a 
 
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/97b23935-a5df-472b-b38e-ab6fa13ce3e9)
 
-This is from PostgreSQL. In Postgres the sorting and UTF settings is set on a database level.  
-In Postgres one does *not* have to trim for " Belgrade". Postgres skips prefixed blanks and sort correctly.  
+This is from PostgreSQL. In Postgres the sorting and UTF settings is set at the database level.  
+In Postgres one does *not* have to trim for " Belfast". Postgres skips prefixed blanks and sort correctly.  
 It's a German sorting, and therefore, between "Odense" and "Piteå" the cities "Öhringen", "Örebro" and "Østerlars" is found.
 
 ## PostGreSQL
