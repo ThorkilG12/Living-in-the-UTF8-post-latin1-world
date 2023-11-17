@@ -84,6 +84,36 @@ You have to change into CodePage 65001 to be able to use UFT8.
 
 From my work with PostgreSQL the last 5 years or so, I will say that Postgres pass the test witout any comments 👍
 
+## Microsoft SQL
+I was not able to figure out how to make SQL Mgmt Studio to read directly from the web. I had to Download JSON data as a file.  
+Notice that `varchar` does *not* support the greek letters. I had to use `nvarchar`
+``` SQL
+-- https://learn.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver16
+SELECT tbl.*
+into dbo.t_cities
+FROM OPENROWSET (BULK 'C:\www.g12.dk.json', SINGLE_CLOB) js
+CROSS APPLY OPENJSON(BulkColumn)
+WITH (
+    [City] [nvarchar](13),
+    [Text] [nvarchar](50)
+) tbl;
+create view dbo.cities as
+ select City
+	  , trim(upper(City)) as CityUp
+	  , lower(City) as CityLow
+	  , len(City) as LenCity
+	  , substring(City,1,2) as CitySub
+	  , Text
+ from [dbo].[t_cities]
+;
+select * from [dbo].[cities] order by CityUp COLLATE Danish_Norwegian_CI_AS
+select * from [dbo].[cities] order by CityUp COLLATE Latin1_General_CI_AS
+select * from [dbo].[cities] order by CityUp COLLATE Finnish_Swedish_CI_AS
+```
+![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/ecbeb732-f60b-4a4d-b72a-9346a11a3ccb)
+
+Microsoft passes with bravour !
+ 
 ## Using JavaScript, PHP, Apache, Browsers and smartphones
 From my point of view, the whole web and the most popular underlaying tools handles UTF8 fine.  
 The transision is over 😊
