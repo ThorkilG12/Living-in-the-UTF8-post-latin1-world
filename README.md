@@ -72,7 +72,7 @@ de_tables=> select * from cities;
 ERROR:  character with byte sequence 0xc5 0x81 in encoding "UTF8" has no equivalent in encoding "WIN1252"
 ```
 Let's try to tell the Command Line tool this: `SET CLIENT_ENCODING TO 'utf8';`
-Now it lokks like this;
+Now it looks like this;
 
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/236074f7-d9b9-4b15-9cfb-669623186946)
 
