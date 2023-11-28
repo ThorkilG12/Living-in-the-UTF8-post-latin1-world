@@ -153,7 +153,8 @@ SAS Has a solution. A standars old-fashion installed PC SAS has this to offer:
 Now you can work with UTF in SAS:  
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/2cdc419c-0dde-42d6-a4ce-0d0982ffddb9)
 
-When SAS starts up in UTF it has a few issues on the log, but the data gets in. SAS Dataset encoding is UTF-8
+When SAS starts up in UTF it has a few issues on the log, but the data gets in. SAS Dataset encoding is UTF-8   
+Notice that SAS removes the blank in front of Belfast.
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/223d34b4-362f-4587-aba5-13f2cf632b4d)
 
 ``` sas
