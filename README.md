@@ -157,6 +157,13 @@ When SAS starts up in UTF it has a few issues on the log, but the data gets in. 
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/223d34b4-362f-4587-aba5-13f2cf632b4d)
 
 ``` sas
+data cities / view = cities;
+  set t_cities(drop=text);
+  CityUp = trim(upcase(city)); 
+  CityLow = lowcase(city); 
+  CityLen = klength(city); 
+  CitySub = ksubstr(city,1,2); 
+run;
 proc sort danish data=cities out=cities_da;
   by CityUp;
 run;
