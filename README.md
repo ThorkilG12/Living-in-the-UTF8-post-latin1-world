@@ -153,5 +153,44 @@ SAS Has a solution. A standars old-fashion installed PC SAS has this to offer:
 Now you can work with UTF in SAS:  
 ![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/2cdc419c-0dde-42d6-a4ce-0d0982ffddb9)
 
+When SAS starts up in UTF it has a few issues on the log, but the data gets in. SAS Dataset encoding is UTF-8
+![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/223d34b4-362f-4587-aba5-13f2cf632b4d)
+
+``` sas
+proc sort danish data=cities out=cities_da;
+  by CityUp;
+run;
+proc sort swedish data=cities out=cities_se;
+  by CityUp;
+run;
+proc sort SORTSEQ=LINGUISTIC(COLLATION=PHONEBOOK) data=cities out=cities_de;
+  by CityUp;
+run;
+```
+It does *not* handle Danish correct.
+
+![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/bd1b3a32-c7d9-4760-9cc3-8d2ac317b411)
+
+``` sas
+options locale=da_DK;
+proc sort SORTSEQ=LINGUISTIC data=cities out=cities_da_l;
+  by CityUp;
+run;
+options locale=se_SE;
+proc sort SORTSEQ=LINGUISTIC data=cities out=cities_se_l;
+  by CityUp;
+run;
+options locale=de_DE;
+proc sort SORTSEQ=LINGUISTIC data=cities out=cities_de_l;
+  by CityUp;
+run;
+```
+![image](https://github.com/ThorkilG12/Living-in-the-UTF8-post-latin1-world/assets/12120277/fe1c0e22-e9e0-407e-8628-0c2adc8a1210)
+
+So... SAS do sort accepable. A bit clumsy, but it is possible.
+
 ## Using SLC / Altair
-(comin up later...)
+Hi Thorkil,
+Thanks for clarifying that, my misunderstanding. It seems what you really need is a SORTSEQ=LINGUISTIC on PROC SORT to handle these types of issue.
+Unfortunately SLC does not support this option at present and hence why the interpretation is different.
+Regards Altair
