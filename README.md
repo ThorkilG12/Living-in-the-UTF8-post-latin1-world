@@ -184,7 +184,7 @@ options locale=da_DK;
 proc sort SORTSEQ=LINGUISTIC data=cities out=cities_da_l;
   by CityUp;
 run;
-options locale=se_SE;
+options locale=sv_SE;
 proc sort SORTSEQ=LINGUISTIC data=cities out=cities_se_l;
   by CityUp;
 run;
