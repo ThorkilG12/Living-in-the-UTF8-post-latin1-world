@@ -19,3 +19,5 @@ This error message is way out wrong. As soon as you remove the AUTORUN key in HK
 It has nothing to do with the value of AUTORUN. It is the existence of the key, that triggers the error.
 
 Running Windows Essentials 2019 and PostgreSQL ver. 17
+
+Folow up: The use of CMD, CHCP 65001, SET CLIENT_ENCODING TO 'utf8'; and a Postgres database that is UTF8 encoded does not work as expected when key AUTORUN exists. Beware !!!!
