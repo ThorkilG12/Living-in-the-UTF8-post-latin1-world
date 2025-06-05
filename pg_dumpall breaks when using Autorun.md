@@ -17,3 +17,5 @@ but was not the same version as pg_dumpall
 This error message is way out wrong. As soon as you remove the AUTORUN key in HKLM, the pg_dumpall will work again.
 
 It has nothing to do with the value of AUTORUN. It is the existence of the key, that triggers the error.
+
+Running Windows Essentials 2019 and PostgreSQL ver. 17
