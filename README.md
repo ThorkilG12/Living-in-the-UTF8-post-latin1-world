@@ -208,3 +208,9 @@ I order to have CMD-like processes to read the filenames correct, this checkmark
 <img width="430" height="221" alt="image" src="https://github.com/user-attachments/assets/575de681-8f5b-475c-9356-122b81fcbd8b" />
 
 As an example, the PostgreSQL function `pg_ls_dir` will not return æøå in UTF8 until this setting is ok.
+
+This is after, when it is ok:
+
+<img width="539" height="264" alt="image" src="https://github.com/user-attachments/assets/49096632-dbf0-43d6-ad66-954ccc5e369e" />
+
+The `c3b8` is UTF8 for `ø`
