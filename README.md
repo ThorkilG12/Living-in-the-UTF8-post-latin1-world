@@ -202,3 +202,9 @@ Hi Thorkil,
 Thanks for clarifying that, my misunderstanding. It seems what you really need is a SORTSEQ=LINGUISTIC on PROC SORT to handle these types of issue.
 Unfortunately SLC does not support this option at present and hence why the interpretation is different.
 Regards Altair
+
+## Added October 2025
+I order to have CMD-like processes to read the filenames correct, this checkmark has to be set.
+<img width="430" height="221" alt="image" src="https://github.com/user-attachments/assets/575de681-8f5b-475c-9356-122b81fcbd8b" />
+
+As an example, the PostgreSQL function `pg_ls_dir` will not return æøå in UTF8 until this setting is ok.
